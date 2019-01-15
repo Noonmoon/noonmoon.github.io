@@ -45,12 +45,12 @@ body {
 
 p{
   margin-top: 5px;
-  font-size: 7px;
+  font-size: 5px;
   color: #bfbfbf;
 }
 
 .spaced{
-  white-space:pre;
+  /*white-space:pre;*/
 }
 
 .grey-line {
