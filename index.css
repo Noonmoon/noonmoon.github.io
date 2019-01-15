@@ -1,13 +1,18 @@
+body {
+  margin: 0
+}
 .left-container {
   width: 34%;
   background-color: #39393b;
   color: white;
+  height: 100%;
 }
 
 .grey-line {
   z-index: -1;
   background-color: #a8acb7;
   width: 38.2%;
+  height: 100%;
 }
 
 hr {

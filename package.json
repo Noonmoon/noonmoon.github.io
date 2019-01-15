@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/Noonmoon/Noonmoon.github.io/issues"
   },
-  "homepage": "https://github.com/Noonmoon/Noonmoon.github.io#readme"
+  "homepage": "https://github.com/Noonmoon/Noonmoon.github.io#readme",
+  "dependencies": {}
 }
