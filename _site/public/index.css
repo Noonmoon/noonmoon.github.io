@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  overflow: hidden;
+  width: 830px;
+  height: 900px;
+}
+
+.img {
+  text-align: center;
+}
+
+.git{
+  margin-top: 8px;
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+}
+
+.left-container {
+  width: 295px;
+  background-color: #39393b;
+  color: white;
+  height: 100%;
+}
+
+.left-text{
+  position: relative;
+  overflow: hidden;
+  margin-left: 15%;
+  height: 100%;
+  top: -30px;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+}
+
+p{
+  margin-top: 5px;
+  font-size: 11px;
+  color: #bfbfbf;
+}
+
+.grey-line {
+  position: absolute;
+  z-index: -1;
+  background-color: #D6D6D6;
+  width: 325px;
+  height: 100%;
+}
+
+hr {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: right;
+}
