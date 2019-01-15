@@ -3,6 +3,7 @@ body {
   font-family: 'Work Sans', sans-serif;
   overflow: hidden;
   width: 830px;
+  height: 900px;
 }
 
 .img {
@@ -10,10 +11,10 @@ body {
 }
 
 .git{
-  margin-top: 5%;
+  margin-top: 8px;
   display: inline-block;
-  width: 115px;
-  height: 115px;
+  width: 90px;
+  height: 90px;
 }
 
 .left-container {
@@ -26,30 +27,26 @@ body {
 .left-text{
   position: relative;
   overflow: hidden;
-  margin-left: 20%;
+  margin-left: 15%;
   height: 100%;
   top: -30px;
 }
 
 .title {
-  margin-top: 25px;
-  font-size: 20px;
+  margin-top: 20px;
+  font-size: 16px;
   letter-spacing: 1px;
 }
 
 .subtitle {
   margin: 0;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 p{
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 11px;
   color: #bfbfbf;
-}
-
-.spaced{
-  white-space:pre;
 }
 
 .grey-line {
@@ -61,7 +58,7 @@ p{
 }
 
 hr {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   width: 100%;
   text-align: right;
 }
