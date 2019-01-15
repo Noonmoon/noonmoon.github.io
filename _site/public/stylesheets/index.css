@@ -1,9 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
-  overflow: hidden;
-  width: 830px;
-  height: 900px;
+  /*overflow: hidden;*/
 }
 
 .img {
