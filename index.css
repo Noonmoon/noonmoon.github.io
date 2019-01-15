@@ -1,0 +1,16 @@
+.left-container {
+  width: 34%;
+  background-color: #39393b;
+  color: white;
+}
+
+.grey-line {
+  z-index: -1;
+  background-color: #a8acb7;
+  width: 38.2%;
+}
+
+hr {
+  width: 70%;
+  margin-left: auto;
+}
