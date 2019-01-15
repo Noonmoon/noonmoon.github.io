@@ -16,5 +16,8 @@
     "url": "https://github.com/Noonmoon/Noonmoon.github.io/issues"
   },
   "homepage": "https://github.com/Noonmoon/Noonmoon.github.io#readme",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
 }
