@@ -2,7 +2,9 @@ var $activeSlide = $('.active'),
 $homeSlide = $(".slide"),
 $slideNavPrev = $("#prev"),
 $slideNavNext = $("#next"),
-ready = false;
+$nextPrev = $(".prevnext"),
+$arrow = $(".arrow"),
+ready = true;
 
 function init() {
   TweenMax.set($homeSlide.not($activeSlide), {autoAlpha: 0});
@@ -11,8 +13,36 @@ function init() {
 
 init();
 
+function disable() {
+  ready = false;
+  setTimeout(function() { ready = true; }, 1200)
+}
+
+function filterNav(index, activeIndex) {
+  console.log(index, activeIndex)
+  if (index === 1 && activeIndex === 0) {
+    $nextPrev.css("display", "none");
+    $('.ghost').css("display", "block");
+    setTimeout(function() {
+      $('.ghost').css("display", "none");
+      $nextPrev.css("display", "block");
+    }, 1000)
+  } else if (index === 1 && activeIndex > 1) {
+    $('.ghost').css("display", "none");
+    $nextPrev.css("display", "block");
+  }
+  else if (index === 0) {
+    $('.ghost').css("display", "block");
+    $nextPrev.css("display", "none");
+  } else {
+    $('.ghost').css("display", "none");
+    $nextPrev.css("display", "block");
+  }
+}
 
 function goToNextSlide(slideOut, slideIn, slideInAll) {
+  disable();
+  filterNav(slideIn.index(), slideOut.index());
   var t1 = new TimelineLite(),
   slideOutContent = slideOut.find('.content'),
   slideInContent = slideIn.find('.content'),
@@ -24,10 +54,10 @@ function goToNextSlide(slideOut, slideIn, slideInAll) {
   if (slideIn.length !== 0) {
     t1.set(slideIn, {autoAlpha: 1, className: '+=active'})
       .set(slideOut, {className: '-=active'})
-      .to(slideOutContent, 0.65, {y: "+=40px", ease: Power3.easeInOut}, 0)
+      .to(slideOutContent, 0.65, {y: "-=40px", ease: Power3.easeInOut}, 0)
       .to(slideOutImg, 0.65, {backgroundPosition: 'bottom', ease: Power3.easeInOut}, 0)
       .to(slideInAll, 1, {y: "-=100%", ease: Power3.easeInOut}, 0)
-      .fromTo(slideInContent, 0.65, {y: '-=40px'}, {y: 0, ease: Power3.easeInOut}, '-=0.65')
+      .fromTo(slideInContent, 0.65, {y: '-=40px'}, {y: 0, ease: Power3.easeInOut}, '-=0.60')
       .fromTo(slideInImg, 0.65, {backgroundPosition: 'top'}, {backgroundPosition: 'bottom', ease: Power3.easeInOut}, '-=0.7')
   }
 
@@ -40,6 +70,8 @@ function goToNextSlide(slideOut, slideIn, slideInAll) {
 
 
 function goToPrevSlide(slideOut, slideIn, slideInAll) {
+  disable()
+  filterNav(slideIn.index(), slideOut.index());
   var t1 = new TimelineLite(),
   slideOutContent = slideOut.find('.content'),
   slideInContent = slideIn.find('.content'),
@@ -47,16 +79,15 @@ function goToPrevSlide(slideOut, slideIn, slideInAll) {
   slideInImg = slideIn.find('.card-img'),
   index = slideIn.index(),
   size = $homeSlide.length;
-  console.log(index)
 
   if (slideIn.length !== 0) {
     t1.set(slideIn, {autoAlpha: 1, className: '+=active'})
       .set(slideOut, {className: '-=active'})
-      .to(slideOutContent, 0.65, {y: "-=40px", ease: Power3.easeInOut}, 0)
-      .to(slideOutImg, 0.65, {backgroundPosition: 'top', ease: Power3.easeInOut}, 0)
+      .to(slideOutContent, 0.65, {y: "+=40px", ease: Power3.easeInOut}, 0)
+      .to(slideOutImg, 0.65, {backgroundPosition: 'top', ease: Power3.easeInOut}, '+=0.7')
       .to(slideInAll, 1, {y: "+=100%", ease: Power3.easeInOut}, 0)
-      .fromTo(slideInContent, 0.65, {y: '+=40px'}, {y: 0, ease: Power3.easeInOut}, "-=0.7")
-      .fromTo(slideInImg, 0.65, {backgroundPosition: 'bottom'}, {backgroundPosition: 'top', ease: Power3.easeInOut}, '+=0.7')
+      .fromTo(slideInContent, 0.65, {y: '+=40px'}, {y: 0, ease: Power3.easeInOut}, 0.65)
+      .fromTo(slideInImg, 0.65, {backgroundPosition: 'bottom'}, {backgroundPosition: 'top', ease: Power3.easeInOut}, 0)
   }
 
   TweenMax.set($slideNavNext, {autoAlpha: 1});
@@ -66,20 +97,27 @@ function goToPrevSlide(slideOut, slideIn, slideInAll) {
   }
 };
 
-function timeout(e) {
-  setTimeout({ready = true}, 1000)
-}
-
 
 $slideNavNext.click(function(e) {
+  console.log('adfda', $arrow.is(":visible"))
+
   e.preventDefault();
 
   var slideOut = $('.slide.active'),
   slideIn = $('.slide.active').next('.slide'),
   slideInAll = $('.slide')
 
-  goToNextSlide(slideOut, slideIn, slideInAll);
-  timeout();
+  if (ready) goToNextSlide(slideOut, slideIn, slideInAll);
+})
+
+$arrow.click(function(e) {
+  e.preventDefault();
+
+  var slideOut = $('.slide.active'),
+  slideIn = $('.slide.active').next('.slide'),
+  slideInAll = $('.slide')
+
+  if (ready) goToNextSlide(slideOut, slideIn, slideInAll);
 })
 
 $slideNavPrev.click(function(e) {
@@ -89,8 +127,9 @@ $slideNavPrev.click(function(e) {
   slideIn = $('.slide.active').prev('.slide'),
   slideInAll = $('.slide')
 
-  goToPrevSlide(slideOut, slideIn, slideInAll);
+  if (ready) goToPrevSlide(slideOut, slideIn, slideInAll);
 })
+
 
 
 
