@@ -1,7 +1,8 @@
 var $activeSlide = $('.active'),
 $homeSlide = $(".slide"),
 $slideNavPrev = $("#prev"),
-$slideNavNext = $("#next");
+$slideNavNext = $("#next"),
+ready = false;
 
 function init() {
   TweenMax.set($homeSlide.not($activeSlide), {autoAlpha: 0});
@@ -9,6 +10,7 @@ function init() {
 }
 
 init();
+
 
 function goToNextSlide(slideOut, slideIn, slideInAll) {
   var t1 = new TimelineLite(),
@@ -36,15 +38,6 @@ function goToNextSlide(slideOut, slideIn, slideInAll) {
   }
 };
 
-$slideNavNext.click(function(e) {
-  e.preventDefault();
-
-  var slideOut = $('.slide.active'),
-  slideIn = $('.slide.active').next('.slide'),
-  slideInAll = $('.slide')
-
-  goToNextSlide(slideOut, slideIn, slideInAll);
-})
 
 function goToPrevSlide(slideOut, slideIn, slideInAll) {
   var t1 = new TimelineLite(),
@@ -54,6 +47,7 @@ function goToPrevSlide(slideOut, slideIn, slideInAll) {
   slideInImg = slideIn.find('.card-img'),
   index = slideIn.index(),
   size = $homeSlide.length;
+  console.log(index)
 
   if (slideIn.length !== 0) {
     t1.set(slideIn, {autoAlpha: 1, className: '+=active'})
@@ -72,6 +66,22 @@ function goToPrevSlide(slideOut, slideIn, slideInAll) {
   }
 };
 
+function timeout(e) {
+  setTimeout({ready = true}, 1000)
+}
+
+
+$slideNavNext.click(function(e) {
+  e.preventDefault();
+
+  var slideOut = $('.slide.active'),
+  slideIn = $('.slide.active').next('.slide'),
+  slideInAll = $('.slide')
+
+  goToNextSlide(slideOut, slideIn, slideInAll);
+  timeout();
+})
+
 $slideNavPrev.click(function(e) {
   e.preventDefault();
 
@@ -79,5 +89,16 @@ $slideNavPrev.click(function(e) {
   slideIn = $('.slide.active').prev('.slide'),
   slideInAll = $('.slide')
 
-  goToNextSlide(slideOut, slideIn, slideInAll);
+  goToPrevSlide(slideOut, slideIn, slideInAll);
 })
+
+
+
+
+
+
+
+
+
+
+

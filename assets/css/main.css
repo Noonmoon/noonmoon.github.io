@@ -15,13 +15,21 @@ body {
 .landing-content {
   margin: 0;
   position: absolute;
-  top: 25%;
+  top: 20%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  padding: 10% 5%;
   box-sizing: border-box;
   width: 100%;
   text-align: center
+}
+
+header h2 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+header p {
+  font-size: 1.2rem;
 }
 
 header .card {
@@ -65,23 +73,32 @@ header .card {
 }
 
 .card-img {
-  background-position: center;
   width: 50%;
   height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 #img01 {
+  height: 100%;
   background-image: url("../../images/bo3.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #img02 {
+  height: 100%;
   background-image: url("../../images/dd.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #img03 {
+  height: 100%;
   background-image: url("../../images/mock.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .card-content {
@@ -112,12 +129,13 @@ header .card {
 }
 
 .card-para {
-  font-size: 1.6vmin;
+  letter-spacing: 1px;
+  font-size: 2.2vmin;
   line-height: 1.8;
   font-weight: 300;
   margin-bottom: 2.5vmin;
   color: #fff;
-  font-family: Poppins;
+  font-family: Roboto;
 }
 
 .card-link {
