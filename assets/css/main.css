@@ -1,300 +1,57 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
+/* BASIC SETUP */
 html, body {
-  width: 100%;
-  height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
-}
-
-body {
   font-family: "Poppins";
-  overflow: hidden;
 }
 
-.landing-content {
-  margin: 0;
-  position: absolute;
-  top: 10%;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: center
-}
-
-header h2 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-family: "Poppins";
-  margin: 0;
-  padding: 0;
-  font-size: 2.4em;
-  font-weight: 200;
-}
-
-header p {
-  font-size: 1.2rem;
-  margin: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-header .image {
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
-  background-image: url("../../images/banner.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.title .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-
-.title .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.1em;
-  padding-right: 0.05em;
-  padding-bottom: 0.05em;
-}
-
-.title .line {
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background-color: #fff;
-  transform-origin: 0 0;
-}
-
-.title .line1 { top: 0; }
-.title .line2 { bottom: 0; }
-
-.button {
-  background-color: #232332;
-  border-radius: 4px;
-  padding: 0.3rem;
-  font-family: "Poppins";
-  font-weight: 200;
-  letter-spacing: 1.5px;
-  color: #dfdfdf;
-  text-decoration: none;
-  margin: 0 auto;
-}
-
-  .button:after {
-    content: "Github";
+#top, #bottom, #left, #right {
+  background: #222222;
+  position: fixed;
   }
+  #left, #right {
+    top: 0; bottom: 0;
+    width: 17px;
+    }
+    #left { left: 0; }
+    #right { right: 0; }
 
-header .arrow {
-  border: none;
-  bottom: 0;
-  color: inherit;
-  font-size: 0.85em;
-  height: 7.5em;
-  left: 50%;
-  letter-spacing: 0.225em;
-  margin-left: -8.5em;
-  opacity: 1;
-  outline: 0;
-  padding-left: 0.225em;
-  position: absolute;
-  text-align: center;
-  text-transform: uppercase;
-  width: 16em;
-  z-index: 1;
-  cursor: pointer;
-}
+  #top, #bottom {
+    left: 0; right: 0;
+    height: 17px;
+    }
+    #top { top: 0; }
+    #bottom { bottom: 0; }
 
-  header .arrow:after {
-    background-image: url("images/arrow.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    bottom: 3em;
-    content: '';
-    display: block;
-    height: 1.5em;
-    left: 50%;
-    margin: 0 0 0 -0.75em;
-    position: absolute;
-    width: 1.5em;
-  }
-
-/* PORTFOLIO SLIDES
-///////////////////////////////////////////////*/
-
-.slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  z-index: -1000;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  background: #0A0A0A;
-}
-
-.card-img {
-  width: 50%;
-  height: 100%;
-}
-
-#img01 {
-  height: 100%;
-  background-image: url("../../images/bo3.png");
-  background-repeat: no-repeat;
+#content-wrapper {
+  margin: 2rem;
+/*  background-image: url("../../images/cover");
+  background-position: center top;
   background-size: contain;
-  background-position: left center;
+  background-repeat: no-repeat;*/
 }
 
-#img02 {
-  height: 100%;
-  background-image: url("../../images/dd.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left center;
+/* CONTENT */
+
+
+
+
+/* RESPONSIVE */
+
+@media
+
+/* Fairly small screens including iphones */
+only screen and (max-width: 500px),
+
+/* iPads */
+only screen and (min-device-width: 768px) and (max-device-width: 1024px)
+
+{
+  #top, #bottom, #left, #right { display: none; }
 }
-
-#img03 {
-  height: 100%;
-  background-image: url("../../images/mock.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left center;
-}
-
-.card-content {
-	margin-top: 40px;
-  padding: 10% 5%;
-  box-sizing: border-box;
-  width: 50%;
-  /*background: #0A0A0A;*/
-}
-
-.card-theme {
-  font-weight: 900;
-  font-size: 1.7vmin;
-  text-transform: uppercase;
-  font-family: Poppins;
-  letter-spacing: 10px;
-  color: grey;
-}
-
-.card-header {
-  font-weight: 700;
-  font-size: 54px;
-  text-transform: capitalize;
-  line-height: 1;
-  margin: 3vmin 0 3.5vmin;
-  color: #fff;
-  font-family: Poppins;
-}
-
-.card-para {
-  letter-spacing: 1px;
-  font-size: 2.2vmin;
-  line-height: 1.8;
-  font-weight: 300;
-  margin-bottom: 2.5vmin;
-  color: #fff;
-  font-family: Roboto;
-}
-
-.card-link {
-  font-size: 1.6vmin;
-  line-height: 1.8;
-  font-weight: 300;
-  margin-bottom: 2.5vmin;
-  color: #fff;
-  font-family: Poppins;
-  opacity: 0.7;
-  transition-timing-function: opacity 0.3s ease;
-}
-
-.card-link:after {
-  content: "➝"
-}
-
-.prevnext {
-  display: none;
-  position: absolute;
-  width: 7vmin;
-  height: 14vmin;
-  right: 2%;
-  bottom: 0;
-  top: 80%;
-  color: #fff;
-  margin: auto 0;
-}
-
-.ghost {
-  display: none;
-  position: absolute;
-  width: 7vmin;
-  height: 14vmin;
-  right: 2%;
-  bottom: 0;
-  top: 80%;
-  color: #fff;
-  margin: auto 0;
-}
-
-.pn-btn {
-  color: #fff;
-  width: 100%;
-  height: 50%;
-  border: 0;
-  background-color: transparent;
-  font-size: 25px;
-}
-
-#p, #n, #prev, #next {
-  position: relative;
-  cursor: pointer;
-}
-
-#prev:focus, #next:focus {
-  outline: none;
-}
-
-#prev:hover:after, #next:hover:after {
-  opacity: 1;
-}
-
-#p:after, #n:after, #prev:after, #next:after {
-  position: absolute;
-  width: 100% ;
-  height: 100%;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-#p:after, #prev:after {
-  content: "↥"
-}
-
-#n:after, #next:after {
-  content: "↧";
-}
-
-
 
 
 
