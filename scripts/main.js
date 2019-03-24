@@ -35,6 +35,41 @@ $('#contact').click(
   }
 );
 
+// DETAILS TRANSITION
+$('#details').click(
+  function() {
+    if (!active) {
+      anime({
+        targets: ['.right-content-slide', '.right-info-slide'],
+        right: ['0', '50%'],
+        easing: 'easeOutCubic',
+        duration: 700
+      })
+      anime({
+        targets: ['.left-info-slide', '.left-content-slide'],
+        left: ['0', '-50%'],
+        easing: 'easeOutCubic',
+        duration: 700
+      })
+      active = true;
+    } else {
+      anime({
+        targets: ['.right-content-slide', '.right-info-slide'],
+        right: ['50%', '0'],
+        easing: 'easeOutCubic',
+        duration: 700
+      })
+      anime({
+        targets: ['.left-info-slide', '.left-content-slide'],
+        left: ['-50%', '0'],
+        easing: 'easeOutCubic',
+        duration: 700
+      })
+      active = false;
+    }
+  }
+);
+
 
 
 

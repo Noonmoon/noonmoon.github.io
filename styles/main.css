@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
 /* LAYOUT */
 html, body {
   width: 100%;
   height: 100%;
   margin: 0px;
   padding: 0px;
-  font-family: "Poppins";
+  font-family: 'Playfair Display', serif;
   overflow: hidden;
 }
 
@@ -17,36 +19,40 @@ html, body {
     right: 50%;
   }
 
-/*  @keyframes slide-in-li {
-    from {left: 0;}
-    to {left: 50%;}
-  }*/
-
   .left-info-slide {
     position: absolute;
     width: 50%;
     height: 100%;
-    background-color: salmon;
     left: 0;
-/*    animation-name: slide-in-li;
-    animation-duration: 1.3s;*/
   }
-
-/*  @keyframes slide-in-lc {
-    from {right: 0;}
-    to {right: -50%;}
-  }*/
-
+    .left-info-slide .container {
+      background-color: #4B0082;
+    }
+      .bio {
+        margin-left: 25%;
+        text-align: right;
+        line-height: 1.35rem;
+        letter-spacing: 1.5px;
+        font-size: 1rem;
+      }
+      .links {
+        position: absolute;
+        bottom: 0.6rem;
+        right: 1.1rem;
+      }
+      li {
+        margin: 1rem;
+        float: left;
+        display: block;
+        cursor: pointer;
+      }
 
   .right-content-slide {
     z-index: 400;
     position: absolute;
     width: 50%;
     height: 100%;
-    background-color: #333333;
     right: 0;
-/*    animation-name: slide-in-lc;
-    animation-duration: 1.3s;*/
   }
 
 
@@ -69,7 +75,6 @@ html, body {
     position: absolute;
     width: 50%;
     height: 100%;
-    background-color: salmon;
     right: 0;
   }
 
@@ -77,16 +82,21 @@ html, body {
     position: absolute;
     width: 50%;
     height: 100%;
-    background-color: #333333;
     left: 0;
   }
+    .left-content-slide .container {
+      background-image: url('../images/bo3.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
 
 /* CONTENT */
 
 #contact {
   position: relative;
   left: -10px;
-  top: 99%;
+  top: 98%;
   border: none;
   background: none;
   padding: 0.3rem;
@@ -94,11 +104,26 @@ html, body {
   cursor: pointer;
 }
 
+#details {
+  position: relative;
+  top: 48%;
+}
+
+.fas {
+  opacity: 0.8;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.6rem;
+  background-color: #4B0082;
+  border-radius: 50%;
+  padding: 8px 12px;
+}
+
 .container {
+  color: white;
   padding: 2rem;
-  margin: 0.5rem;
-  height: calc(100vh - 5rem);
-  background-color: #FCFBFA;
+  height: calc(100vh - 4rem);
+  background-color: white;
 }
 
 
