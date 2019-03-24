@@ -18,6 +18,9 @@ html, body {
     width: 100%;
     right: 50%;
   }
+    .face {
+      width: 35%;
+    }
 
   .left-info-slide {
     position: absolute;
@@ -37,7 +40,7 @@ html, body {
       }
       .links {
         position: absolute;
-        bottom: 0.6rem;
+        bottom: 1rem;
         right: 1.1rem;
       }
       li {
@@ -98,9 +101,9 @@ html, body {
 
 #contact {
   color: black;
-  position: relative;
-  left: -10px;
-  top: 98%;
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
   font-size: 0.8rem;
   cursor: pointer;
 }
