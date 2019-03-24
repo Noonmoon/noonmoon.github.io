@@ -46,6 +46,9 @@ html, body {
         display: block;
         cursor: pointer;
       }
+      .coffee {
+        width: 50px;
+      }
 
   .right-content-slide {
     z-index: 400;
