@@ -18,6 +18,24 @@ html, body {
     width: 100%;
     right: 50%;
   }
+    .top-head {
+      padding: 1rem;
+      color: #eeeeee;
+      font-size: 1.3rem;
+      letter-spacing: 1.2px;
+      display: inline-block;
+      background-color: #333333;
+    }
+    .face {
+      float: left;
+      width: 40%;
+      max-height: 245px;
+      max-width: 165px;
+    }
+    .right-head {
+      float: right;
+      width: 50%;
+    }
 
   .left-info-slide {
     position: absolute;
@@ -27,6 +45,7 @@ html, body {
   }
     .left-info-slide .container {
       background-color: #3C45C0;
+      color: #eeeeee;
     }
       .bio {
         margin: 0 3%;
@@ -37,7 +56,7 @@ html, body {
       }
       .links {
         position: absolute;
-        bottom: 0.6rem;
+        bottom: 1rem;
         right: 1.1rem;
       }
       li {
@@ -88,19 +107,19 @@ html, body {
     left: 0;
   }
     .left-content-slide .container {
-      background-image: url('../images/dd.png');
+      background-image: url('../images/bo3.png');
       background-repeat: no-repeat;
       background-position: center;
-      background-size: contain;
+      background-size: cover;
     }
 
 /* CONTENT */
 
 #contact {
   color: black;
-  position: relative;
-  left: -10px;
-  top: 98%;
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
   font-size: 0.8rem;
   cursor: pointer;
 }
@@ -117,25 +136,31 @@ html, body {
 #details {
   position: relative;
   top: 48%;
+  left: 90%;
 }
 
 .fas {
+  color: #eeeeee;
   opacity: 1;
   text-align: center;
   cursor: pointer;
   font-size: 1.6rem;
-  background-color: #FF8C00;
+  background-color: #3C45C0;
   border-radius: 50%;
   padding: 8px 11px 8px 13px;
 }
 
 .container {
-  color: white;
+  color: #444444;
   padding: 2rem;
   height: calc(100vh - 4rem);
   background-color: white;
 }
 
+#tl1 {
+  margin-top: 5rem;
+  margin-left: 0.3rem;
+}
 
 
 
