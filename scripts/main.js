@@ -1,9 +1,32 @@
-let active = false;
+let lActive = false;
+
+// ITEM TRANSITION
+
+// $('#tl1').click(
+//   function() {
+
+//   }
+// )
+
+
+
+
+$('#det').click(
+  function() {
+    anime({
+      targets: '.slide',
+      top: ['0', '100'],
+      easing: 'easeOutCubic',
+      duration: 500
+    })
+  }
+)
+
 
 // ABOUT TRANSITION
 $('#contact').click(
   function() {
-    if (!active) {
+    if (!lActive) {
       anime({
         targets: ['.right-content-slide', '.right-info-slide'],
         right: ['0', '-50%'],
@@ -11,12 +34,18 @@ $('#contact').click(
         duration: 700
       })
       anime({
-        targets: ['.left-info-slide', '.left-content-slide'],
+        targets: ['#details', '.left-info-slide', '.left-content-slide'],
         left: ['0', '50%'],
         easing: 'easeOutCubic',
         duration: 700
       })
-      active = true;
+      // anime({
+      //   targets: '#home',
+      //   display: ['none', 'block']
+      //   easing: 'easeOutCubic',
+      //   duration: 300
+      // })
+      lActive = true;
     } else {
       anime({
         targets: ['.right-content-slide', '.right-info-slide'],
@@ -25,12 +54,12 @@ $('#contact').click(
         duration: 700
       })
       anime({
-        targets: ['.left-info-slide', '.left-content-slide'],
+        targets: ['#details', '.left-info-slide', '.left-content-slide'],
         left: ['50%', '0'],
         easing: 'easeOutCubic',
         duration: 700
       })
-      active = false;
+      lActive = false;
     }
   }
 );
@@ -38,7 +67,7 @@ $('#contact').click(
 // DETAILS TRANSITION
 $('#details').click(
   function() {
-    if (!active) {
+    if (!lActive) {
       anime({
         targets: ['.right-content-slide', '.right-info-slide'],
         right: ['0', '50%'],
@@ -46,12 +75,18 @@ $('#details').click(
         duration: 700
       })
       anime({
-        targets: ['.left-info-slide', '.left-content-slide'],
+        targets: ['#details', '.left-info-slide', '.left-content-slide'],
         left: ['0', '-50%'],
         easing: 'easeOutCubic',
         duration: 700
       })
-      active = true;
+      anime({
+        targets: '.pic',
+        filter: ['grayscale(100%)', 'grayscale(0%)'],
+        easing: 'easeOutCubic',
+        duration: 700
+      })
+      lActive = true;
     } else {
       anime({
         targets: ['.right-content-slide', '.right-info-slide'],
@@ -60,12 +95,18 @@ $('#details').click(
         duration: 700
       })
       anime({
-        targets: ['.left-info-slide', '.left-content-slide'],
+        targets: ['#details', '.left-info-slide', '.left-content-slide'],
         left: ['-50%', '0'],
         easing: 'easeOutCubic',
         duration: 700
       })
-      active = false;
+      anime({
+        targets: '.pic',
+        filter: ['grayscale(0%)', 'grayscale(100%)'],
+        easing: 'easeOutCubic',
+        duration: 700
+      })
+      lActive = false;
     }
   }
 );
