@@ -1,21 +1,31 @@
 let lActive = false;
 
-// ITEM TRANSITION
+// PORTFOLIO SLIDE
 
-// $('#tl1').click(
-//   function() {
-
-//   }
-// )
-
-
-
+$(window).bind('mousewheel', function(event) {
+  if (event.originalEvent.wheelDelta >= 0) {
+    anime({
+      targets: '.slide',
+      top: ['0', '-100%'],
+      easing: 'easeOutCubic',
+      duration: 500
+    })
+  }
+  else {
+    anime({
+      targets: '.slide',
+      top: ['-100%', '0'],
+      easing: 'easeOutCubic',
+      duration: 500
+    })
+  }
+});
 
 $('#det').click(
   function() {
     anime({
       targets: '.slide',
-      top: ['0', '100'],
+      top: ['0', '-100%'],
       easing: 'easeOutCubic',
       duration: 500
     })
@@ -28,14 +38,14 @@ $('#contact').click(
   function() {
     if (!lActive) {
       anime({
-        targets: ['.right-content-slide', '.right-info-slide'],
-        right: ['0', '-50%'],
+        targets: '#left-content',
+        right: ['50%', '0'],
         easing: 'easeOutCubic',
         duration: 700
       })
       anime({
-        targets: ['#details', '.left-info-slide', '.left-content-slide'],
-        left: ['0', '50%'],
+        targets: '#right-content',
+        left: ['50%', '100%'],
         easing: 'easeOutCubic',
         duration: 700
       })
@@ -48,14 +58,14 @@ $('#contact').click(
       lActive = true;
     } else {
       anime({
-        targets: ['.right-content-slide', '.right-info-slide'],
-        right: ['-50%', '0'],
+        targets: '#right-content',
+        left: ['100%', '50%'],
         easing: 'easeOutCubic',
         duration: 700
       })
       anime({
-        targets: ['#details', '.left-info-slide', '.left-content-slide'],
-        left: ['50%', '0'],
+        targets: '#left-content',
+        right: ['0', '50%'],
         easing: 'easeOutCubic',
         duration: 700
       })
@@ -69,19 +79,19 @@ $('#details').click(
   function() {
     if (!lActive) {
       anime({
-        targets: ['.right-content-slide', '.right-info-slide'],
-        right: ['0', '50%'],
+        targets: '#right-content',
+        left: ['50%', '0'],
         easing: 'easeOutCubic',
         duration: 700
       })
       anime({
-        targets: ['#details', '.left-info-slide', '.left-content-slide'],
-        left: ['0', '-50%'],
+        targets: '#left-content',
+        right: ['50%', '100%'],
         easing: 'easeOutCubic',
         duration: 700
       })
       anime({
-        targets: '.pic',
+        targets: ['.pic', '.pic2'],
         filter: ['grayscale(100%)', 'grayscale(0%)'],
         easing: 'easeOutCubic',
         duration: 700
@@ -89,19 +99,19 @@ $('#details').click(
       lActive = true;
     } else {
       anime({
-        targets: ['.right-content-slide', '.right-info-slide'],
-        right: ['50%', '0'],
+        targets: '#left-content',
+        right: ['100%', '50%'],
         easing: 'easeOutCubic',
         duration: 700
       })
       anime({
-        targets: ['#details', '.left-info-slide', '.left-content-slide'],
-        left: ['-50%', '0'],
+        targets: '#right-content',
+        left: ['0', '50%'],
         easing: 'easeOutCubic',
         duration: 700
       })
       anime({
-        targets: '.pic',
+        targets: ['.pic', '.pic2'],
         filter: ['grayscale(0%)', 'grayscale(100%)'],
         easing: 'easeOutCubic',
         duration: 700

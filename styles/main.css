@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 
+
 /* LAYOUT */
 html, body {
   width: 100%;
@@ -10,11 +11,8 @@ html, body {
   overflow: hidden;
 }
 
-#det {
-  display: none;
-}
 
-/* Info */
+/* INNER LEFT */
 
   #left-content {
     position: absolute;
@@ -22,26 +20,14 @@ html, body {
     width: 100%;
     right: 50%;
   }
-    .poster {
-      /*float: left;*/
-      margin-right: 1rem;
-      padding: 1rem;
-      color: #eeeeee;
-      display: inline-block;
-      background-color: #333333;
-    }
-    .face {
-      width: 100%;
-      max-width: 165px;
-    }
 
-  .left-info-slide {
+  .about-left-content {
     position: absolute;
     width: 50%;
     height: 100%;
     left: 0;
   }
-    .left-info-slide .container {
+    .about-left-content .container {
       background-color: #3C45C0;
       color: #eeeeee;
     }
@@ -64,22 +50,28 @@ html, body {
         cursor: pointer;
       }
 
-  .right-content-slide {
-    z-index: 400;
+  .about-right-content {
     position: absolute;
+    z-index: 400;
     width: 50%;
     height: 100%;
     right: 0;
   }
+    .poster {
+      margin-right: 1rem;
+      padding: 1rem;
+      color: #eeeeee;
+      display: inline-block;
+      background-color: #333333;
+    }
+    .face {
+      width: 100%;
+      max-width: 165px;
+    }
 
 
-/* Navigation */
 
-  #slider {
-
-  }
-
-/* PORTFOLIO ITEM */
+/* INNER RIGHT */
 
   #right-content {
     position: absolute;
@@ -87,19 +79,22 @@ html, body {
     width: 100%;
     left: 50%;
   }
-
-    .right-info-slide {
-      position: absolute;
+    .slide {
+      height: 100vh;
+      width: 100vw;
+    }
+    .portfolio-right-content {
+      float: right;
       width: 50%;
       height: 100vh;
-      right: 0;
+      background-color: blue;
     }
 
-    .left-content-slide {
-      position: absolute;
+    .portfolio-left-content {
+      float: left;
       width: 50%;
       height: 100vh;
-      left: 0;
+      /*background-color: red;*/
     }
       .overlay {
         background-color: grey;
@@ -109,12 +104,25 @@ html, body {
       }
 
       .pic {
+        height: 100%;
+        width: 100%;
         filter: grayscale(100%);
         background-image: url('../images/bo3.png');
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;
       }
+      .pic2 {
+        height: 100%;
+        width: 100%;
+        filter: grayscale(100%);
+        background-image: url('../images/dd.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+      }
+
+
   #slide-1 {
     position: relative;
     top: 0;
@@ -123,6 +131,18 @@ html, body {
     position: relative;
     top: 100;
   }
+
+
+
+
+
+/* Navigation */
+
+  #slider {
+
+  }
+
+
 
 
 
