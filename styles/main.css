@@ -96,13 +96,13 @@ html, body {
       height: 100vh;
       /*background-color: red;*/
     }
-      .overlay {
+/*      .overlay {
         background-color: grey;
         height: 100%;
         width: 100%;
         opacity: 0.2;
       }
-
+*/
       .pic {
         height: 100%;
         width: 100%;
@@ -124,16 +124,13 @@ html, body {
 
 
   #slide-1 {
-    position: relative;
+    position: absolute;
     top: 0;
   }
   #slide-2 {
-    position: relative;
-    top: 100;
+    position: absolute;
+    top: 100vh;
   }
-
-
-
 
 
 /* Navigation */

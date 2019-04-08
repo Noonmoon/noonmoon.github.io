@@ -1,36 +1,59 @@
 let lActive = false;
+var activeSlide = document.querySelector('.active');;
 
 // PORTFOLIO SLIDE
 
+let sliding = false;
+
+function scrollDown(id) {
+  let num = id.substr(id.length - 1)
+  console.log(num)
+  anime({
+    targets: activeSlide,
+    top: ['-100%', '0'],
+    easing: 'easeOutCubic',
+    duration: 1000
+  });
+  anime({
+    targets: `#slide-2`,
+    top: ['0', '100'],
+    easing: 'easeOutCubic',
+    duration: 1000
+  });
+}
+
+function scrollUp(id) {
+  let num = id.substr(id.length - 1)
+  console.log(num)
+  anime({
+    targets: activeSlide,
+    top: ['0', '-100%'],
+    easing: 'easeOutCubic',
+    duration: 1000
+  })
+  anime({
+    targets: `#slide-2`,
+    top: ['100%', '0'],
+    easing: 'easeOutCubic',
+    duration: 1000
+  })
+}
+
 $(window).bind('mousewheel', function(event) {
-  if (event.originalEvent.wheelDelta >= 0) {
-    anime({
-      targets: '.slide',
-      top: ['0', '-100%'],
-      easing: 'easeOutCubic',
-      duration: 500
-    })
+  if (!sliding && event.originalEvent.wheelDelta >= 0) {
+    sliding = true;
+    setTimeout(function() { sliding = false; }, 1100)
+
+    scrollDown($('.active').attr('id'))
   }
-  else {
-    anime({
-      targets: '.slide',
-      top: ['-100%', '0'],
-      easing: 'easeOutCubic',
-      duration: 500
-    })
+  else if (!sliding && event.originalEvent.wheelDelta < 0) {
+    sliding = true;
+    setTimeout(function() { sliding = false; }, 1100)
+
+    scrollUp($('.active').attr('id'))
   }
 });
 
-$('#det').click(
-  function() {
-    anime({
-      targets: '.slide',
-      top: ['0', '-100%'],
-      easing: 'easeOutCubic',
-      duration: 500
-    })
-  }
-)
 
 
 // ABOUT TRANSITION
@@ -41,13 +64,13 @@ $('#contact').click(
         targets: '#left-content',
         right: ['50%', '0'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       anime({
         targets: '#right-content',
         left: ['50%', '100%'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       // anime({
       //   targets: '#home',
@@ -61,13 +84,13 @@ $('#contact').click(
         targets: '#right-content',
         left: ['100%', '50%'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       anime({
         targets: '#left-content',
         right: ['0', '50%'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       lActive = false;
     }
@@ -82,19 +105,19 @@ $('#details').click(
         targets: '#right-content',
         left: ['50%', '0'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       anime({
         targets: '#left-content',
         right: ['50%', '100%'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       anime({
         targets: ['.pic', '.pic2'],
         filter: ['grayscale(100%)', 'grayscale(0%)'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       lActive = true;
     } else {
@@ -102,19 +125,19 @@ $('#details').click(
         targets: '#left-content',
         right: ['100%', '50%'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       anime({
         targets: '#right-content',
         left: ['0', '50%'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       anime({
         targets: ['.pic', '.pic2'],
         filter: ['grayscale(0%)', 'grayscale(100%)'],
         easing: 'easeOutCubic',
-        duration: 700
+        duration: 750
       })
       lActive = false;
     }
