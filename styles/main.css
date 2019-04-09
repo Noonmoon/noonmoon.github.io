@@ -107,19 +107,20 @@ html, body {
         height: 100%;
         width: 100%;
         filter: grayscale(100%);
-        background-image: url('../images/bo3.png');
         background-repeat: no-repeat;
         background-position: top center;
         background-size: cover;
       }
-      .pic2 {
-        height: 100%;
-        width: 100%;
-        filter: grayscale(100%);
+
+      .one {
+        background-image: url('../images/bo3.png');
+      }
+
+      .three {
+        background-image: url('../images/3pd.png');
+      }
+      .two {
         background-image: url('../images/dd.png');
-        background-repeat: no-repeat;
-        background-position: top center;
-        background-size: cover;
       }
 
 
@@ -129,7 +130,11 @@ html, body {
   }
   #slide-2 {
     position: absolute;
-    top: 100vh;
+    top: 100%;
+  }
+  #slide-3 {
+    position: absolute;
+    top: 100%;
   }
 
 
