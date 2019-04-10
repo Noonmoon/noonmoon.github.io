@@ -2,48 +2,30 @@ let sliding = false;
 var lActive = false;
 
 // PORTFOLIO SLIDE
+/*
+  1) animate active slide with easeOutCubic and 1000 
+  duration from top: 0 to top: 100%
+  2) animate active slide with same values except
+  top: -100% to 0
+  3) remove active class from and slide and apply to next sibling
+*/
+function scroll(direction) {
+  let nextIndex = $('.active').next();
+  let prevIndex = $('.active').prev();
 
-function scrollDown(active) {
-  let activeIndex = $(".slide").index(active);
-  let newIndex = $(".slide").index(active.prev());
-  let newNode = document.querySelectorAll(`#slide-${newIndex + 1}`)
+  if (direction == "up") {
+    TweenMax.to(".active", 1, {top:"-100%"});
+    TweenMax.to(nextIndex, 1, {top:0});
 
-  anime({
-    targets: ('.active'),
-    top: ['0', '100%'],
-    easing: 'easeOutCubic',
-    duration: 1000
-  })
-  anime({
-    targets: newNode,
-    top: ['-100%', '0'],
-    easing: 'easeOutCubic',
-    duration: 1000
-  })
-  active.removeClass( 'active' )
-  active.prev().addClass('active')
-}
+    $('.active').removeClass('active')
+    nextIndex.addClass('active')
+  } else if (direction == "down") {
+    TweenMax.to(".active", 1, {top:"100%"});
+    TweenMax.to(prevIndex, 1, {top:"0"});
 
-function scrollUp(active) {
-  let activeIndex = $(".slide").index(active);
-  let newIndex = $(".slide").index(active.next());
-  let newNode = document.querySelectorAll(`#slide-${newIndex + 1}`)
-
-  anime({
-    targets: ('.active'),
-    top: ['0', '-100%'],
-    easing: 'easeOutCubic',
-    duration: 1000
-  })
-  anime({
-    targets: newNode,
-    top: ['100%', '0'],
-    easing: 'easeOutCubic',
-    duration: 1000
-  })
-
-  active.removeClass( 'active' )
-  active.next().addClass('active')
+    $('.active').removeClass('active')
+    prevIndex.addClass('active')
+  }
 }
 
 
@@ -52,17 +34,15 @@ $(window).bind('mousewheel', function(event) {
     if (!sliding && event.originalEvent.wheelDelta >= 0) {
       if ($(".slide").index('.active') !== 0) {
         sliding = true;
-        setTimeout(function() { sliding = false; }, 1020)
-
-        scrollDown($('.active'))
+        setTimeout(function() { sliding = false; }, 1000)
+        scroll("down")
       }
     }
     else if (!sliding && event.originalEvent.wheelDelta < 0) {
       if ($(".active").nextAll().length !== 0) {
         sliding = true;
-        setTimeout(function() { sliding = false; }, 1020)
-
-        scrollUp($('.active'))
+        setTimeout(function() { sliding = false; }, 1000)
+        scroll("up")
       }
     }
   }

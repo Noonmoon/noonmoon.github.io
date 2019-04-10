@@ -122,25 +122,17 @@ html, body {
       }
 
 
-  #slide-1 {
+ #firstSlide {
     position: absolute;
     top: 0;
   }
-  #slide-2 {
-    position: absolute;
-    top: 100%;
-  }
-  #slide-3 {
+  .slide, .lower {
     position: absolute;
     top: 100%;
   }
 
 
 /* Navigation */
-
-  #slider {
-
-  }
 
 
 
