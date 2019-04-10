@@ -1,7 +1,7 @@
-let sliding = false;
 var lActive = false;
 
 // PORTFOLIO SLIDE
+
 /*
   1) animate active slide with easeOutCubic and 1000 
   duration from top: 0 to top: 100%
@@ -9,6 +9,9 @@ var lActive = false;
   top: -100% to 0
   3) remove active class from and slide and apply to next sibling
 */
+
+var sliding = false;
+
 function scroll(direction) {
   let nextIndex = $('.active').next();
   let prevIndex = $('.active').prev();
@@ -30,6 +33,7 @@ function scroll(direction) {
 
 
 $(window).bind('mousewheel', function(event) {
+
   if (!lActive) {
     if (!sliding && event.originalEvent.wheelDelta >= 0) {
       if ($(".slide").index('.active') !== 0) {
@@ -46,98 +50,55 @@ $(window).bind('mousewheel', function(event) {
       }
     }
   }
+
 });
 
 
-// ABOUT TRANSITION
+// PAGE TRANSITIONS
 
+/*
+  1) first click #left-content right: 0 #right-content left: 100%
+  2) if second revert
 
+  1) first click #right-content left: 0 #left-content right: 100%
+  2) .pic fliter: grayscale: (0%)
+  3) if second revert
+*/
+
+// ABOUT
+let contactCounter = 0;
 $('#contact').click(
   function() {
-    if (!lActive) {
-      anime({
-        targets: '#home',
-        display: ["none", "block"],
-        easing: 'easeOutCubic',
-        duration: 300
-      })
-      anime({
-        targets: '#left-content',
-        right: ['50%', '0'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      anime({
-        targets: '#right-content',
-        left: ['50%', '100%'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      lActive = true;
+    contactCounter++;
+
+    if (contactCounter % 2 === 1) {
+      TweenMax.to('#left-content', 0.75, {right: 0})
+      TweenMax.to('#right-content', 0.75, {left: "100%"})
     } else {
-      anime({
-        targets: '#right-content',
-        left: ['100%', '50%'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      anime({
-        targets: '#left-content',
-        right: ['0', '50%'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      lActive = false;
+      TweenMax.to("#left-content", 0.75, {right: "50%"})
+      TweenMax.to("#right-content", 0.75, {left: "50%"})
     }
+
   }
 );
 
 
-// DETAILS TRANSITION
+// PORTOFLIO
+let portfolioCounter = 0;
 $('#details').click(
   function() {
-    console.log(lActive);
-    if (!lActive) {
-      anime({
-        targets: '#right-content',
-        left: ['50%', '0'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      anime({
-        targets: '#left-content',
-        right: ['50%', '100%'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      anime({
-        targets: ['.pic', '.pic2'],
-        filter: ['grayscale(100%)', 'grayscale(0%)'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      lActive = true;
+    portfolioCounter++;
+
+    if (portfolioCounter % 2 === 1) {
+      TweenMax.to("#right-content", 1, {left: 0})
+      TweenMax.to("#left-content", 1, {right: "+100%"})
+      TweenMax.to(".pic", 1, {filter: "grayscale(0%)"})
     } else {
-      anime({
-        targets: '#left-content',
-        right: ['100%', '50%'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      anime({
-        targets: '#right-content',
-        left: ['0', '50%'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      anime({
-        targets: ['.pic', '.pic2'],
-        filter: ['grayscale(0%)', 'grayscale(100%)'],
-        easing: 'easeOutCubic',
-        duration: 750
-      })
-      lActive = false;
+      TweenMax.to("#right-content", 1, {left: "50%"})
+      TweenMax.to("#left-content", 1, {right: "50%"})
+      TweenMax.to(".pic", 1, {filter: "grayscale(100%)"})
     }
+  
   }
 );
 
