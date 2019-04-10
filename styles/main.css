@@ -58,8 +58,8 @@ html, body {
     right: 0;
   }
     .poster {
-      margin-right: 1rem;
-      padding: 1rem;
+      padding: 0.5rem;
+      padding-bottom: 0.3rem;
       color: #eeeeee;
       display: inline-block;
       background-color: #333333;
@@ -87,22 +87,20 @@ html, body {
       float: right;
       width: 50%;
       height: 100vh;
-      background-color: blue;
     }
 
     .portfolio-left-content {
       float: left;
       width: 50%;
       height: 100vh;
-      /*background-color: red;*/
     }
-/*      .overlay {
+      .overlay {
         background-color: grey;
         height: 100%;
         width: 100%;
         opacity: 0.2;
       }
-*/
+
       .pic {
         height: 100%;
         width: 100%;
@@ -168,16 +166,17 @@ html, body {
 #contact, #home {
   color: black;
   position: absolute;
-  left: 2rem;
-  bottom: 2rem;
+  left: 1.8rem;
+  bottom: 0;
   font-size: 1rem;
   cursor: pointer;
+  margin-bottom: 1.8rem;
 }
-  .purp {
+  #contact:before, #home:before {
+    content: "";
     position: absolute;
-    left: -2px;
-    top: -10px;
-    margin: 5px;
+    bottom: 1rem;
+    margin: 10px 2px;
     background-color: #3C45C0;
     width: 20px;
     height: 3px;
@@ -208,7 +207,7 @@ html, body {
 }
 
 .container {
-  overflow: hidden;
+  overflow: auto;
   color: #444444;
   height: 100vh;
   background-color: white;
@@ -217,10 +216,15 @@ html, body {
   padding: 2rem;
 }
 
-#tl1 {
-  margin-top: 5rem;
-  margin-left: 0.3rem;
+.title {
+  display: none;
+  margin-top: 4rem;
   font-size: 2.5rem;
+  letter-spacing: 1.5px;
+}
+
+.activeTitle {
+  display: block;
 }
 
 /*RESPONSIVE*/

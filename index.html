@@ -22,7 +22,7 @@
           <div class="content">
             <div class="bio">
               <h1>Hi there!</h1>
-              <p>Thanks for visiting my portfolio. My name is Tristan Deering and I am a passionate post-secondary graduate devoted to the development of creative state of the art web applications. On my free time I enjoy learning new languages and frameworks as well as experimenting with new technologies emerging in the development space.
+              <p>Thanks for visiting my portfolio. My name is Tristan Deering and I am a passionate post-secondary graduate devoted to the development of creative state of the art web applications and user experiences. On my free time I enjoy learning new languages and frameworks as well as experimenting with new technologies emerging in the development space.
               <br>
               <br />
               If you have an idea you think I can help fabricate into reality feel free to contact me at any of the links below. I hope to hear from you soon!</p>
@@ -46,17 +46,25 @@
         <div class="container">
           <div class="content">
             <div class="poster">
-              <img src="images/face.jpg" alt="Web developer graduation photo" class="face">
+              <img src="images/face.jpg" alt="Web developer graduation picture" class="face">
             </div>
-            <h1 id="tl1">Best Of 3</h1>
-            <div id="contact">
-              <span>About / Contact</span>
-              <span class="purp"></span>
+
+            <div class="textSlider">
+              <h1 class="title activeTitle">Best Of 3</h1>
+              <h1 class="title">Mocking Bird</h1>
+              <h1 class="title">RSVP with React</h1>
+              <h1 class="title">Chatter</h1>
+              <h1 class="title">CBD Ecommerce</h1>
+              <h1 class="title">Dare Design</h1>
+              <h1 class="title">3rd Perspective Design</h1>
+              <h1 class="title">Holistic Hunger</h1>
             </div>
-            <div id="home">
-              <span>Home</span>
-              <span class="purp"></span>
+
+            <div class="textSlider">
+              <span id="contact">About / Contact</span>
+              <span id="home">Home</span>
             </div>
+
           </div>
         </div>
       </div>
@@ -85,11 +93,18 @@
         <div class="portfolio-right-content">
           <div class="container">
             <div class="content">
+              <h1>Best Of 3</h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                Best Of 3 was a final project created by me with the help of one other student. We wanted to utilize our knowledge of sockets to create something both fun and interesting. What we both decided on in the end was best of 3. A web application aimed at delivering a fun experience when settling debates or decisions with friends. In the end we developed 3 different games and game types including online multiplayer.
+                <br>
+                <br>
+                When developing this application the work was split up into front-end and back-end. My partner was rosponsible for the majority of middleware and connecting front end elements to the database. I was tasked with any front-end related programming including html & css, game development, socket networking, design, and UI/UX. This was the first project where I attempted to apply my UX and design interests in my development and I was very happy with the result. In the beginning we went from having to use 4 clicks to get to any given game reduced all the way down to 1.
+                <br>
+                <br>
+                While developing this project one major problem I ran into was client state sychronization. Creating the socket network that would sync clients during play was a challenge I will never forget. Because I was creating my network with sockets this was an even greater challenge because there was no example of this in another application and my mentors had no prior knowledge of networking. Therefore it was recommended that I do not attempt the networking and just stick with local play. However, this was the basis of our project so I had to decided to keep trying all the way until I succeeded just 3 hours before our last day of mentor help. This moment was one that I will remember forever as I truly fell in love with the challenge development brings. For 5 days I was willing to keep my head down to create a piece of my projet that seemed out of reach 99% of the time.
+                <br>
+                <br>
+                This dedication I put into my development comes from the priceless feeling I achieve from completing a challenge like this and the enjoyment of successfully applying my creative and logical mind.
               </p>
             </div>
           </div>
@@ -177,7 +192,7 @@
 
     <!-- Scripts -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
-      <script src="scripts/anime.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
       <script src="scripts/jquery.min.js"></script>
       <script src="scripts/main.js"></script>
 

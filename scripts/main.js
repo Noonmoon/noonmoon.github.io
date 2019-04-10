@@ -1,6 +1,7 @@
-// PORTFOLIO SLIDE
-
 let sliding = false;
+var lActive = false;
+
+// PORTFOLIO SLIDE
 
 function scrollDown(active) {
   let activeIndex = $(".slide").index(active);
@@ -47,32 +48,39 @@ function scrollUp(active) {
 
 
 $(window).bind('mousewheel', function(event) {
-  if (!sliding && event.originalEvent.wheelDelta >= 0) {
-    if ($(".slide").index('.active') !== 0) {
-      sliding = true;
-      setTimeout(function() { sliding = false; }, 1020)
+  if (!lActive) {
+    if (!sliding && event.originalEvent.wheelDelta >= 0) {
+      if ($(".slide").index('.active') !== 0) {
+        sliding = true;
+        setTimeout(function() { sliding = false; }, 1020)
 
-      scrollDown($('.active'))
+        scrollDown($('.active'))
+      }
     }
-  }
-  else if (!sliding && event.originalEvent.wheelDelta < 0) {
-    if ($(".active").nextAll().length !== 0) {
-      sliding = true;
-      setTimeout(function() { sliding = false; }, 1020)
+    else if (!sliding && event.originalEvent.wheelDelta < 0) {
+      if ($(".active").nextAll().length !== 0) {
+        sliding = true;
+        setTimeout(function() { sliding = false; }, 1020)
 
-      scrollUp($('.active'))
+        scrollUp($('.active'))
+      }
     }
   }
 });
 
 
-
 // ABOUT TRANSITION
-let lActive = false;
+
 
 $('#contact').click(
   function() {
     if (!lActive) {
+      anime({
+        targets: '#home',
+        display: ["none", "block"],
+        easing: 'easeOutCubic',
+        duration: 300
+      })
       anime({
         targets: '#left-content',
         right: ['50%', '0'],
@@ -85,12 +93,6 @@ $('#contact').click(
         easing: 'easeOutCubic',
         duration: 750
       })
-      // anime({
-      //   targets: '#home',
-      //   display: ['none', 'block']
-      //   easing: 'easeOutCubic',
-      //   duration: 300
-      // })
       lActive = true;
     } else {
       anime({
@@ -114,6 +116,7 @@ $('#contact').click(
 // DETAILS TRANSITION
 $('#details').click(
   function() {
+    console.log(lActive);
     if (!lActive) {
       anime({
         targets: '#right-content',
