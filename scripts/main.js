@@ -1,5 +1,3 @@
-var lActive = false;
-
 // PORTFOLIO SLIDE
 
 /*
@@ -31,23 +29,19 @@ function scroll(direction) {
   }
 }
 
-
+let homePage = true;
 $(window).bind('mousewheel', function(event) {
-
-  if (!lActive) {
-    if (!sliding && event.originalEvent.wheelDelta >= 0) {
-      if ($(".slide").index('.active') !== 0) {
-        sliding = true;
-        setTimeout(function() { sliding = false; }, 1000)
-        scroll("down")
-      }
+  console.log($("#right-content").css("left"))
+  if (homePage && !sliding) {
+    if (event.originalEvent.wheelDelta >= 0 && $(".slide").index('.active') !== 0) {
+      sliding = true;
+      setTimeout(function() { sliding = false; }, 1000)
+      scroll("down")
     }
-    else if (!sliding && event.originalEvent.wheelDelta < 0) {
-      if ($(".active").nextAll().length !== 0) {
-        sliding = true;
-        setTimeout(function() { sliding = false; }, 1000)
-        scroll("up")
-      }
+    else if (event.originalEvent.wheelDelta < 0 && $(".active").nextAll().length !== 0) {
+      sliding = true;
+      setTimeout(function() { sliding = false; }, 1000)
+      scroll("up")
     }
   }
 
@@ -74,9 +68,11 @@ $('#contact').click(
     if (contactCounter % 2 === 1) {
       TweenMax.to('#left-content', 0.75, {right: 0})
       TweenMax.to('#right-content', 0.75, {left: "100%"})
+      homePage = false;
     } else {
       TweenMax.to("#left-content", 0.75, {right: "50%"})
       TweenMax.to("#right-content", 0.75, {left: "50%"})
+      homePage = true;
     }
 
   }
@@ -93,10 +89,12 @@ $('#details').click(
       TweenMax.to("#right-content", 1, {left: 0})
       TweenMax.to("#left-content", 1, {right: "+100%"})
       TweenMax.to(".pic", 1, {filter: "grayscale(0%)"})
+      homePage = false;
     } else {
       TweenMax.to("#right-content", 1, {left: "50%"})
       TweenMax.to("#left-content", 1, {right: "50%"})
       TweenMax.to(".pic", 1, {filter: "grayscale(100%)"})
+      homePage = true;
     }
   
   }
