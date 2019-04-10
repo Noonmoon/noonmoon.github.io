@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
-
+@import url('https://fonts.googleapis.com/css?family=Cardo|Lora');
 
 /* LAYOUT */
 html, body {
@@ -7,7 +6,7 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cardo', sans-serif;
   overflow: hidden;
 }
 
@@ -28,8 +27,8 @@ html, body {
     left: 0;
   }
     .about-left-content .container {
-      background-color: #3C45C0;
-      color: #eeeeee;
+      background-color: #edd1cb;
+      color: #323039;
     }
       .bio {
         margin: 0 3%;
@@ -60,9 +59,8 @@ html, body {
     .poster {
       padding: 0.5rem;
       padding-bottom: 0.3rem;
-      color: #eeeeee;
       display: inline-block;
-      background-color: #333333;
+      background-color: #323039;
     }
     .face {
       width: 100%;
@@ -145,7 +143,7 @@ html, body {
   right: 0;
   height: 100vh;
   width: 1rem;
-  border-color: #3C45C0;
+  border-color: #f95950;
   border-style: solid;
   border-width: 0;
   border-right-width: 5px;
@@ -166,12 +164,11 @@ html, body {
 }
   #contact:before, #home:before {
     content: "";
-    position: absolute;
-    bottom: 1rem;
-    margin: 10px 2px;
-    background-color: #3C45C0;
-    width: 20px;
-    height: 3px;
+    display: block;
+    margin-bottom: 0.5rem; 
+    width: 1rem;
+    height: 2.5px;
+    background-color: #f95950;
   }
 
 #details {
@@ -188,9 +185,9 @@ html, body {
   text-align: center;
   cursor: pointer;
   font-size: 1.8rem;
-  background-color: #3C45C0;
+  background-color: #f95950;
   border-radius: 50%;
-  padding: 15px 18px 15px 21px;
+  padding: 10px 13px 10px 16px;
   transition: transform 0.8s;
 }
 
@@ -200,24 +197,53 @@ html, body {
 
 .container {
   overflow: auto;
-  color: #444444;
+  color: #323039;
   height: 100vh;
-  background-color: white;
+  background-color: #efefef;
+}
+.about-right-content > .container {
+  border-left-color: #f95950;
+  border-width: 1px;
+  border-left-style: solid;
+}
+.portfolio-right-content > .container {
+  border-left-style: solid;
+  border-left-color: #f95950;
 }
 .content {
   padding: 2rem;
 }
 
-.title {
-  display: none;
-  margin-top: 4rem;
-  font-size: 2.5rem;
-  letter-spacing: 1.5px;
+.slideInfo {
+ display: none;
 }
 
-.activeTitle {
-  display: block;
-}
+  .title {
+    font-family: 'Lora', sans-serif;
+    font-weight: 600;
+    margin-top: 4rem;
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+  }
+
+  .title:before {
+    content: "";
+    display: block;
+    margin-bottom: 0.5rem; 
+    width: 1.5rem;
+    height: 2.5px;
+    background-color: #f95950;
+  }
+
+  .subTitle {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
+
+  .activeTitle {
+    display: block;
+  }
 
 /*RESPONSIVE*/
 
