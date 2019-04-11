@@ -27,27 +27,38 @@ html, body {
     left: 0;
   }
     .about-left-content .container {
-      background-color: #edd1cb;
-      color: #323039;
+      background-color: #373234;
+      color: #ffffff;
     }
       .bio {
-        margin: 0 3%;
+        /* margin: 0 2%; */
         text-align: center;
         line-height: 1.5rem;
         letter-spacing: 1.5px;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
+        font-weight: 600;
       }
-      .links {
+
+      #menu-outer {
+        width: 100%;
         position: absolute;
-        bottom: 1rem;
-        right: 1.1rem;
+        bottom: 0;
+        padding: 1rem 0;
       }
-      li {
-        margin: 1rem;
-        float: left;
-        display: block;
-        cursor: pointer;
-      }
+      .table {
+        display: table;   /* Allow the centering to work */
+        margin: 0 auto;
+      }    
+      ul#horizontal-list {
+        list-style: none;
+        padding: 0;
+        }
+        ul#horizontal-list li {
+          display: inline;
+          margin: 0 0.5rem;
+          font-size: 1.2rem;
+          cursor: pointer;
+        }
 
   .about-right-content {
     position: absolute;
@@ -57,16 +68,40 @@ html, body {
     right: 0;
   }
     .poster {
-      padding: 0.5rem;
-      padding-bottom: 0.3rem;
       display: inline-block;
-      background-color: #323039;
     }
     .face {
-      width: 100%;
-      max-width: 165px;
+      max-height: 200px;
     }
-
+    .slideInfo {
+      margin: 20% 10%;
+      display: none;
+    }
+     
+      .title {
+        font-family: 'Lora', sans-serif;
+        font-weight: 600;
+        font-size: 2.5rem;
+        letter-spacing: 1.5px;
+      }
+    
+      .title:before {
+        content: ""; 
+        display: block;
+        margin-bottom: 0.1rem; 
+        width: 1.5rem;
+        height: 2.5px;
+        background-color: #d84339;
+      }
+      .subTitle {
+        margin-top: 1rem;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+      }
+      .activeTitle {
+        display: block;
+      }
+     
 
 
 /* INNER RIGHT */
@@ -86,6 +121,11 @@ html, body {
       width: 50%;
       height: 100vh;
     }
+      .portfolio-right-content > .container {
+        border-left-style: solid;
+        border-left-color: #d84339;
+        color: #323039;
+      }
 
     .portfolio-left-content {
       float: left;
@@ -111,7 +151,6 @@ html, body {
       .one {
         background-image: url('../images/bo3.png');
       }
-
       .three {
         background-image: url('../images/3pd.png');
       }
@@ -143,7 +182,7 @@ html, body {
   right: 0;
   height: 100vh;
   width: 1rem;
-  border-color: #f95950;
+  border-color: #d84339;
   border-style: solid;
   border-width: 0;
   border-right-width: 5px;
@@ -165,10 +204,10 @@ html, body {
   #contact:before, #home:before {
     content: "";
     display: block;
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.2rem; 
     width: 1rem;
     height: 2.5px;
-    background-color: #f95950;
+    background-color: #d84339;
   }
 
 #details {
@@ -185,7 +224,7 @@ html, body {
   text-align: center;
   cursor: pointer;
   font-size: 1.8rem;
-  background-color: #f95950;
+  background-color: #d84339;
   border-radius: 50%;
   padding: 10px 13px 10px 16px;
   transition: transform 0.8s;
@@ -199,51 +238,13 @@ html, body {
   overflow: auto;
   color: #323039;
   height: 100vh;
-  background-color: #efefef;
+  background-color: #EFF2F4;
 }
-.about-right-content > .container {
-  border-left-color: #f95950;
-  border-width: 1px;
-  border-left-style: solid;
-}
-.portfolio-right-content > .container {
-  border-left-style: solid;
-  border-left-color: #f95950;
-}
+
 .content {
   padding: 2rem;
 }
 
-.slideInfo {
- display: none;
-}
-
-  .title {
-    font-family: 'Lora', sans-serif;
-    font-weight: 600;
-    margin-top: 4rem;
-    font-size: 2.5rem;
-    letter-spacing: 1.5px;
-  }
-
-  .title:before {
-    content: "";
-    display: block;
-    margin-bottom: 0.5rem; 
-    width: 1.5rem;
-    height: 2.5px;
-    background-color: #f95950;
-  }
-
-  .subTitle {
-    margin-top: 1rem;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-  }
-
-  .activeTitle {
-    display: block;
-  }
 
 /*RESPONSIVE*/
 
@@ -261,14 +262,6 @@ html, body {
     line-height: 1rem;
     letter-spacing: normal;
     text-align: right;
-  }
-  .links {
-    width: 100%;
-    margin: 0 auto;
-    font-size: 0.7rem;
-  }
-  .links li {
-    margin: 0.5rem;
   }
   .poster {
     padding: 0.5rem;

@@ -14,6 +14,7 @@ function scroll(direction) {
   let nextIndex = $('.active').next();
   let prevIndex = $('.active').prev();
 
+  setTimeout(function() { sliding = false; console.log("okay") }, 1050)
   if (direction == "up") {
     TweenMax.to(".active", 1, {top:"-100%"});
     TweenMax.to(nextIndex, 1, {top:0});
@@ -31,16 +32,15 @@ function scroll(direction) {
 
 let homePage = true;
 $(window).bind('mousewheel', function(event) {
-  console.log($("#right-content").css("left"))
+  event.preventDefault();
+  console.log(!sliding)
   if (homePage && !sliding) {
     if (event.originalEvent.wheelDelta >= 0 && $(".slide").index('.active') !== 0) {
       sliding = true;
-      setTimeout(function() { sliding = false; }, 1000)
       scroll("down")
     }
     else if (event.originalEvent.wheelDelta < 0 && $(".active").nextAll().length !== 0) {
       sliding = true;
-      setTimeout(function() { sliding = false; }, 1000)
       scroll("up")
     }
   }
@@ -68,6 +68,7 @@ $('#contact').click(
     if (contactCounter % 2 === 1) {
       TweenMax.to('#left-content', 0.75, {right: 0})
       TweenMax.to('#right-content', 0.75, {left: "100%"})
+      TweenMax.to('#contact', 0.5, {})
       homePage = false;
     } else {
       TweenMax.to("#left-content", 0.75, {right: "50%"})
