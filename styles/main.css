@@ -10,11 +10,6 @@ html, body {
   overflow: hidden;
 }
 
-a {
-  height: 100%;
-  width: 100%;
-}
-
 
 /* INNER LEFT */
 
@@ -72,7 +67,8 @@ a {
       max-height: 200px;
     }
     .slideInfo {
-      margin: 20% 10%;
+      margin-top: 50%;
+      margin-left: 10%;
       display: none;
     }
      
@@ -99,6 +95,14 @@ a {
       .activeTitle {
         display: block;
       }
+      
+      .logo {
+        float: left;
+        height: 2rem;  
+        margin-right: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
      
 
 
@@ -154,7 +158,7 @@ a {
         background-image: url('../images/mock.png');
       }
       .three {
-        background-image: url('../images/3pd.png');
+        background-image: url('../images/3p.png');
       }
       .four {
         background-image: url('../images/dd.png')
@@ -311,6 +315,7 @@ a {
     left: 0;
   }
 }
+
 
 /* ----------- iPad mini ----------- */
 
