@@ -1,5 +1,5 @@
 // INTERACTIONS
-
+$('.activeTitle').addClass('slide-in-elliptic-bottom-fwd')
 
 
 
@@ -19,14 +19,22 @@ function scroll(direction) {
   let nextIndex = $('.active').next();
   let prevIndex = $('.active').prev();
 
-  setTimeout(function() { sliding = false; console.log("okay") }, 1100)
+  setTimeout(function() { sliding = false;  }, 1100)
   if (direction == "up") {
+    $('.activeTitle').removeClass().addClass('activeTitle slideInfo slide-out-elliptic-top-bck')
+    setTimeout(function() { $('.activeTitle').prev().removeClass('activeTitle') }, 750)
+    $('.activeTitle').next().removeClass().addClass('slideInfo activeTitle slide-in-elliptic-bottom-fwd')
+
     TweenMax.to(".active", 1, {top:"-100%"});
     TweenMax.to(nextIndex, 1, {top:0});
 
     $('.active').removeClass('active')
     nextIndex.addClass('active')
   } else if (direction == "down") {
+    $('.activeTitle').removeClass().addClass('slideInfo activeTitle slide-out-elliptic-bottom-bck')
+    setTimeout(function() { $('.activeTitle').next().removeClass('activeTitle') }, 750)
+    $('.activeTitle').prev().removeClass().addClass('slideInfo activeTitle slide-in-elliptic-top-fwd')
+
     TweenMax.to(".active", 1, {top:"100%"});
     TweenMax.to(prevIndex, 1, {top:"0"});
 
