@@ -10,6 +10,11 @@ html, body {
   overflow: hidden;
 }
 
+a {
+  height: 100%;
+  width: 100%;
+}
+
 
 /* INNER LEFT */
 
@@ -43,22 +48,15 @@ html, body {
         width: 100%;
         position: absolute;
         bottom: 0;
-        padding: 1rem 0;
-      }
-      .table {
-        display: table;   /* Allow the centering to work */
-        margin: 0 auto;
-      }    
-      ul#horizontal-list {
-        list-style: none;
-        padding: 0;
-        }
-        ul#horizontal-list li {
-          display: inline;
-          margin: 0 0.5rem;
-          font-size: 1.2rem;
-          cursor: pointer;
-        }
+        padding: 2rem 0;
+        text-align: center;
+      } 
+      nav a {
+        text-decoration: none;
+        color: inherit;
+        margin: 0 0.8rem;
+      }  
+
 
   .about-right-content {
     position: absolute;
@@ -81,7 +79,7 @@ html, body {
       .title {
         font-family: 'Lora', sans-serif;
         font-weight: 600;
-        font-size: 2.5rem;
+        font-size: 3rem;
         letter-spacing: 1.5px;
       }
     
@@ -132,12 +130,13 @@ html, body {
       width: 50%;
       height: 100vh;
     }
-      .overlay {
-        background-color: grey;
-        height: 100%;
-        width: 100%;
-        opacity: 0.2;
-      }
+
+    .portfolio-left-content:after {
+      background-color: #222222;
+      height: 100%;
+      width: 100%;
+      opacity: 0.1;
+    }
 
       .pic {
         height: 100%;
@@ -151,11 +150,20 @@ html, body {
       .one {
         background-image: url('../images/bo3.png');
       }
+      .two {
+        background-image: url('../images/mock.png');
+      }
       .three {
         background-image: url('../images/3pd.png');
       }
-      .two {
-        background-image: url('../images/dd.png');
+      .four {
+        background-image: url('../images/dd.png')
+      }
+      .five {
+        background-image: url('../images/cbd.png')
+      }
+      .six {
+        background-image: url('../images/rsvp.png')
       }
 
 
@@ -163,19 +171,13 @@ html, body {
     position: absolute;
     top: 0;
   }
-  .slide, .lower {
+  .slide {
     position: absolute;
     top: 100%;
   }
 
 
 /* Navigation */
-
-
-
-
-
-/* CONTENT */
 
 .scroll-bar {
   position: absolute;
@@ -188,27 +190,54 @@ html, body {
   border-right-width: 5px;
 }
 
-#home {
+
+
+
+/* CONTENT */
+
+.scale-in-ver-top {
+	-webkit-animation: scale-in-ver-top 0.8s ease-in-out 0.2s both;
+	        animation: scale-in-ver-top 0.8s ease-in-out 0.2s both;
+}
+.scale-in-ver-bottom {
+	-webkit-animation: scale-in-ver-bottom 0.8s ease-in-out 0.2s both;
+	        animation: scale-in-ver-bottom 0.8s ease-in-out 0.2s both;
+}
+
+.scale-out-ver-bottom {
+	-webkit-animation: scale-out-ver-bottom 0.8s ease-in-out both;
+	        animation: scale-out-ver-bottom 0.8s ease-in-out both;
+}
+.scale-out-ver-top {
+	-webkit-animation: scale-out-ver-top 0.8s ease-in-out both;
+	        animation: scale-out-ver-top 0.8s ease-in-out both;
+}
+
+.left-link { 
+  position: absolute;
+  left: 1.8rem;
+  bottom: 2rem;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+}
+  .dash {
+    display: block;
+    margin-bottom: 4px; 
+    width: 20%;
+    height: 2px;
+    background-color: #d84339;
+    transition: width 0.5s;
+  }
+
+.left-link.hidden {
   display: none;
 }
 
-#contact, #home {
-  color: black;
-  position: absolute;
-  left: 1.8rem;
-  bottom: 0;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-bottom: 1.8rem;
+.left-link:hover .dash {
+  width: 100%;
 }
-  #contact:before, #home:before {
-    content: "";
-    display: block;
-    margin-bottom: 0.2rem; 
-    width: 1rem;
-    height: 2.5px;
-    background-color: #d84339;
-  }
+
 
 #details {
   position: absolute;
@@ -238,15 +267,26 @@ html, body {
   overflow: auto;
   color: #323039;
   height: 100vh;
-  background-color: #EFF2F4;
+  background-color: #fefcf9;
 }
 
 .content {
   padding: 2rem;
+  overflow: hidden;
 }
 
 
-/*RESPONSIVE*/
+/* KEYFRAMES */
+
+@-webkit-keyframes scale-in-ver-top{0%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}@keyframes scale-in-ver-top{0%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}
+@-webkit-keyframes scale-in-ver-bottom{0%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}100%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}}@keyframes scale-in-ver-bottom{0%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}100%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}}
+
+@-webkit-keyframes scale-out-ver-bottom{0%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}}@keyframes scale-out-ver-bottom{0%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:0 100%;transform-origin:0 100%;opacity:1}}
+@-webkit-keyframes scale-out-ver-top{0%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}@keyframes scale-out-ver-top{0%{-webkit-transform:scaleY(1);transform:scaleY(1);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);-webkit-transform-origin:100% 0;transform-origin:100% 0;opacity:1}}
+
+
+
+/* RESPONSIVE */
 
 @media screen and (max-width: 450px) {
   html {

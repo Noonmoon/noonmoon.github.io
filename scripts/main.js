@@ -1,3 +1,8 @@
+// INTERACTIONS
+
+
+
+
 // PORTFOLIO SLIDE
 
 /*
@@ -14,7 +19,7 @@ function scroll(direction) {
   let nextIndex = $('.active').next();
   let prevIndex = $('.active').prev();
 
-  setTimeout(function() { sliding = false; console.log("okay") }, 1050)
+  setTimeout(function() { sliding = false; console.log("okay") }, 1100)
   if (direction == "up") {
     TweenMax.to(".active", 1, {top:"-100%"});
     TweenMax.to(nextIndex, 1, {top:0});
@@ -32,8 +37,6 @@ function scroll(direction) {
 
 let homePage = true;
 $(window).bind('mousewheel', function(event) {
-  event.preventDefault();
-  console.log(!sliding)
   if (homePage && !sliding) {
     if (event.originalEvent.wheelDelta >= 0 && $(".slide").index('.active') !== 0) {
       sliding = true;
@@ -44,7 +47,6 @@ $(window).bind('mousewheel', function(event) {
       scroll("up")
     }
   }
-
 });
 
 
@@ -54,23 +56,28 @@ $(window).bind('mousewheel', function(event) {
   1) first click #left-content right: 0 #right-content left: 100%
   2) if second revert
 
-  1) first click #right-content left: 0 #left-content right: 100%
+  1) firstclick #right-content left: 0 #left-content right: 100%
   2) .pic fliter: grayscale: (0%)
   3) if second revert
 */
 
 // ABOUT
 let contactCounter = 0;
-$('#contact').click(
+$('.left-link').click(
   function() {
     contactCounter++;
 
     if (contactCounter % 2 === 1) {
+      $('#contact').removeClass().addClass('left-link scale-out-ver-bottom')
+      $('#home').removeClass().addClass('left-link scale-in-ver-top')
+
       TweenMax.to('#left-content', 0.75, {right: 0})
       TweenMax.to('#right-content', 0.75, {left: "100%"})
-      TweenMax.to('#contact', 0.5, {})
       homePage = false;
     } else {
+      $('#home').removeClass().addClass('left-link scale-out-ver-top')
+      $('#contact').removeClass().addClass('left-link scale-in-ver-bottom')
+
       TweenMax.to("#left-content", 0.75, {right: "50%"})
       TweenMax.to("#right-content", 0.75, {left: "50%"})
       homePage = true;
@@ -87,14 +94,15 @@ $('#details').click(
     portfolioCounter++;
 
     if (portfolioCounter % 2 === 1) {
-      TweenMax.to("#right-content", 1, {left: 0})
-      TweenMax.to("#left-content", 1, {right: "+100%"})
-      TweenMax.to(".pic", 1, {filter: "grayscale(0%)"})
+      TweenMax.to("#right-content", 0.75, {left: 0})
+      TweenMax.to("#left-content", 0.75, {right: "+100%"})
+      TweenMax.to(".pic", 0.75, {filter: "grayscale(0%)"})
+      TweenMax.to(".overlay", 0.75, {opacity: 0})
       homePage = false;
     } else {
-      TweenMax.to("#right-content", 1, {left: "50%"})
-      TweenMax.to("#left-content", 1, {right: "50%"})
-      TweenMax.to(".pic", 1, {filter: "grayscale(100%)"})
+      TweenMax.to("#right-content", 0.75, {left: "50%"})
+      TweenMax.to("#left-content", 0.75, {right: "50%"})
+      TweenMax.to(".pic", 0.75, {filter: "grayscale(100%)"})
       homePage = true;
     }
   
