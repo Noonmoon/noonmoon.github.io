@@ -13,13 +13,14 @@ $('.activeTitle').addClass('slide-in-elliptic-bottom-fwd')
   3) remove active class from and slide and apply to next sibling
 */
 
-var sliding = false;
+let sliding = false;
 
 function scroll(direction) {
   let nextIndex = $('.active').next();
   let prevIndex = $('.active').prev();
-
-  setTimeout(function() { sliding = false;  }, 1100)
+  
+  setTimeout(function() { $(window).off('mousewheel');   }, 750)
+  setTimeout(function() { sliding = false; $(window).on( "mousewheel", $(window), scrollEvent );  }, 1350)
   if (direction == "up") {
     $('.activeTitle').removeClass().addClass('activeTitle slideInfo slide-out-elliptic-top-bck')
     setTimeout(function() { $('.activeTitle').prev().removeClass('activeTitle') }, 750)
@@ -44,7 +45,26 @@ function scroll(direction) {
 }
 
 let homePage = true;
-$(window).bind('mousewheel', function(event) {
+
+
+function scrollEvent(event) {
+  console.log("scrolling")
+ 
+  if (homePage && !sliding) {
+    if (event.originalEvent.wheelDelta >= 0 && $(".slide").index('.active') !== 0) {
+      sliding = true;
+      scroll("down")
+    }
+    else if (event.originalEvent.wheelDelta < 0 && $(".active").nextAll().length !== 0) {
+      sliding = true;
+      scroll("up")
+    }
+  }
+}
+
+$(window).on('mousewheel', function(event) {
+  console.log("scrolling")
+ 
   if (homePage && !sliding) {
     if (event.originalEvent.wheelDelta >= 0 && $(".slide").index('.active') !== 0) {
       sliding = true;
