@@ -325,6 +325,7 @@ html, body {
 and (min-device-width : 300px) and (max-device-width : 400px) {  
   html {
     position: fixed;
+    overflow: hidden;
   }
   .bio {
     margin: 0;
@@ -355,6 +356,7 @@ and (min-device-width : 300px) and (max-device-width : 400px) {
 
   html {
     position: fixed;
+    overflow: hidden;
   }
   .bio p {
     font-size: 15px;
