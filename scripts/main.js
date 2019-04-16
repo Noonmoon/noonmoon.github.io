@@ -13,6 +13,7 @@ $('.activeTitle').addClass('slide-in-elliptic-bottom-fwd')
   3) remove active class from and slide and apply to next sibling
 */
 
+let homePage = true;
 let sliding = false;
 
 function scroll(direction) {
@@ -43,7 +44,6 @@ function scroll(direction) {
   }
 }
 
-let homePage = true;
 
 $(window).on('mousewheel', function(event) {
   console.log("scrolling")
@@ -61,6 +61,48 @@ $(window).on('mousewheel', function(event) {
 });
 
 
+/*
+  Index Animation: 
+    1. User clicks on index-row
+    2. Grab index of event relevant to parent
+    3. Compare Index to Index of slide elements to their parent
+    4. Slide in Title of relevant slide
+    4. Slide all elements up if index is lesser
+    5. Slide all elements down if index is greater
+    6. Slide index closed
+*/
+
+$('.index-row').click(
+  function(event) {
+    let rowIndex = $('.index-row').index(this);
+    let slide = $('.slide').eq(rowIndex); // correlating slide
+    let slideInfo = $('.slideInfo').eq(rowIndex);
+    let prevInfoIndex = $('.activeTitle');
+
+    setTimeout(function() { prevInfoIndex.removeClass('activeTitle') }, 750);
+    $('.activeTitle').removeClass().addClass('slideInfo activeTitle slide-out-elliptic-bottom-bck');
+    slideInfo.removeClass().addClass('slideInfo activeTitle slide-in-elliptic-top-fwd');
+
+    $('#right-content').children().each(function (index) {
+      if (index < rowIndex) {
+        TweenMax.to(this, 1, {top:"-100%"});
+      } else if (index > rowIndex) {
+        TweenMax.to(this, 1, {top:"100%"});
+      } else if (index === index) {
+        TweenMax.to(this, 1, {top:0});
+      }
+    });
+
+    setTimeout(function() {
+      TweenMax.to('#index-slide', 0.75, {left: "49%"})
+      
+      $('#close').removeClass().addClass('right-link scale-out-ver-top')
+      $('#index').removeClass().addClass('right-link scale-in-ver-bottom')
+    }, 100)
+  }
+)
+
+
 // PAGE TRANSITIONS
 
 /*
@@ -71,6 +113,27 @@ $(window).on('mousewheel', function(event) {
   2) .pic fliter: grayscale: (0%)
   3) if second revert
 */
+
+// INDEX 
+let indexCounter = 0;
+$('.right-link').click(
+  function() {
+    indexCounter++;
+
+    if (indexCounter % 2 === 1) {
+      $('#index').removeClass().addClass('right-link scale-out-ver-bottom')
+      $('#close').removeClass().addClass('right-link scale-in-ver-top')
+
+      TweenMax.to('#index-slide', 1, {left: "100%"})
+    } else {
+      $('#close').removeClass().addClass('right-link scale-out-ver-top')
+      $('#index').removeClass().addClass('right-link scale-in-ver-bottom')
+
+      TweenMax.to("#index-slide", 1, {left: "49%"})
+    }
+
+  }
+)
 
 // ABOUT
 let contactCounter = 0;
@@ -105,12 +168,14 @@ $('#details').click(
     portfolioCounter++;
 
     if (portfolioCounter % 2 === 1) {
+      TweenMax.to("#details", 0.75, {left: 0})
       TweenMax.to("#right-content", 0.75, {left: 0})
       TweenMax.to("#left-content", 0.75, {right: "+100%"})
       TweenMax.to(".pic", 0.75, {filter: "grayscale(0%)"})
       TweenMax.to(".overlay", 0.75, {opacity: 0})
       homePage = false;
     } else {
+      TweenMax.to("#details", 0.75, {left: "50%"})
       TweenMax.to("#right-content", 0.75, {left: "50%"})
       TweenMax.to("#left-content", 0.75, {right: "50%"})
       TweenMax.to(".pic", 0.75, {filter: "grayscale(100%)"})
@@ -119,6 +184,7 @@ $('#details').click(
   
   }
 );
+
 
 
 
