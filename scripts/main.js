@@ -78,8 +78,6 @@ $('.index-row').click(
     let slide = $('.slide').eq(rowIndex); // correlating slide
     let slideInfo = $('.slideInfo').eq(rowIndex);
     let prevInfoIndex = $('.activeTitle');
-
-    console.log(rowIndex, prevInfoIndex.index())
     
     if (rowIndex !== prevInfoIndex.index()) {  
       setTimeout(function() { prevInfoIndex.removeClass('activeTitle') }, 750);
