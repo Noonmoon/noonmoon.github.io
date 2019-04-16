@@ -95,10 +95,13 @@ $('.index-row').click(
 
     setTimeout(function() {
       TweenMax.to('#index-slide', 0.75, {left: "49%"})
-      
+
       $('#close').removeClass().addClass('right-link scale-out-ver-top')
       $('#index').removeClass().addClass('right-link scale-in-ver-bottom')
     }, 100)
+
+    $('.active').removeClass('active')
+    slide.addClass('active')
   }
 )
 
