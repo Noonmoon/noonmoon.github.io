@@ -79,29 +79,33 @@ $('.index-row').click(
     let slideInfo = $('.slideInfo').eq(rowIndex);
     let prevInfoIndex = $('.activeTitle');
 
-    setTimeout(function() { prevInfoIndex.removeClass('activeTitle') }, 750);
-    $('.activeTitle').removeClass().addClass('slideInfo activeTitle slide-out-elliptic-bottom-bck');
-    slideInfo.removeClass().addClass('slideInfo activeTitle slide-in-elliptic-top-fwd');
-
-    $('#right-content').children().each(function (index) {
-      if (index < rowIndex) {
-        TweenMax.to(this, 1, {top:"-100%"});
-      } else if (index > rowIndex) {
-        TweenMax.to(this, 1, {top:"100%"});
-      } else if (index === index) {
-        TweenMax.to(this, 1, {top:0});
-      }
-    });
-
-    setTimeout(function() {
-      TweenMax.to('#index-slide', 0.75, {left: "49%"})
-
-      $('#close').removeClass().addClass('right-link scale-out-ver-top')
-      $('#index').removeClass().addClass('right-link scale-in-ver-bottom')
-    }, 100)
-
-    $('.active').removeClass('active')
-    slide.addClass('active')
+    console.log(rowIndex, prevInfoIndex.index())
+    
+    if (rowIndex !== prevInfoIndex.index()) {  
+      setTimeout(function() { prevInfoIndex.removeClass('activeTitle') }, 750);
+      $('.activeTitle').removeClass().addClass('slideInfo activeTitle slide-out-elliptic-bottom-bck');
+      slideInfo.removeClass().addClass('slideInfo activeTitle slide-in-elliptic-top-fwd');
+  
+      $('#right-content').children().each(function (index) {
+        if (index < rowIndex) {
+          TweenMax.to(this, 1, {top:"-100%"});
+        } else if (index > rowIndex) {
+          TweenMax.to(this, 1, {top:"100%"});
+        } else if (index === index) {
+          TweenMax.to(this, 1, {top:0});
+        }
+      });
+  
+      setTimeout(function() {
+        TweenMax.to('#index-slide', 0.75, {left: "49%"})
+  
+        $('#close').removeClass().addClass('right-link scale-out-ver-top')
+        $('#index').removeClass().addClass('right-link scale-in-ver-bottom')
+      }, 100)
+  
+      $('.active').removeClass('active')
+      slide.addClass('active')
+    }
   }
 )
 
